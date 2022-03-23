@@ -13,14 +13,18 @@
 using namespace std;
 
 // The vector is passed a constant reference, which means the calling argument is passed as a reference, but the contents of the vector can not be changed.
-void writeOutput (const vector<string> &v)
+void writeOutput (const vector<string> &v, ostream &os=cout)
 {
 
     for (string i : v) {
-        cout << "Value: " << i << endl;
+        os << "Value: " << i << endl;
     } //  end of for loop
 
 } // end of writeOutput function
+
+void writeOutput (const string obs[]) {
+
+}
 
 /*
 void writeOutput (string pointer[])  // replaces above line version for array of strings
@@ -56,24 +60,22 @@ void readInput (string pointer[])  // replaces above line version for array of s
 
  */
 
- int main(int argc, const char *argv[])
-{
- //   FILE* spOutput;
-    
-  ofstream stringout("/Users/Charles/Desktop/common_files/string-out.txt");
-    // this does create string-out.txt in the correct directory
-    
-    ifstream stringin("/Users/Charles/Desktop/common_files/string-in.txt") ;
-    
-    string observation[] = {"aaa", "bbb", "ccc", "ddd"}; // should overwrite with values in file
+int main(int argc, const char *argv[]) {
 
     vector<string> v = {"Fred", "Wilma", "Barney", "Betty"};
 
-    writeOutput(v);  // call function writeOutput
-    
-  //  writeOutput(observation);  // call function writeOutput
-    stringout.close();
-    stringin.close();
+    writeOutput(v); // call function writeOutput
+
+    ofstream ofile("/Users/Charles/Desktop/common_files/string-out.txt");
+    ifstream ifile("/Users/Charles/Desktop/common_files/string-in.txt");
+
+    vector<string> observation = {"aaa", "bbb", "ccc", "ddd"}; // should overwrite with values in file
+
+    writeOutput(observation, ofile);  // call function writeOutput
+
+    ofile.close();
+    ifile.close();
+
     return 0;
 
 } // end of main
