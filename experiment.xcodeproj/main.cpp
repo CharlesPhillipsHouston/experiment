@@ -17,24 +17,17 @@ using namespace std;
 void writeOutput1 (const vector<string> &v)
 {
     for (string i : v)
-    {
         cout << "Value: " << i << endl;
-    } //  end of for loop
 
 } // end of writeOutput1 function
 
-void writeOutput2 (string pointer[])  // replaces above line version for array of strings
+void writeOutput2 (string pointer[], ostream& os)  // replaces above line version for array of strings
 // this function does not return any values, etc
 
 {
     for (int i = 0; i < 4; i++)
     {
-       cout << "Observation: " << *pointer; // value of what is at pointer
-        // this does output correctly to screen
-    //    fprintf(spOutput, "%c \n", *pointer);
-        
-   // stringout << *pointer << endl;
-        cout << endl;
+        os << "Observation: " << *pointer << endl; // value of what is at pointer
         pointer++;
     } //  end of for loop
 
@@ -54,27 +47,29 @@ void readInput (stringin)  // replaces above line version for array of strings
 } // end of readInput function
 */
 
- int main(int argc, const char *argv[])
+int main(int argc, const char *argv[])
 {
- //   FILE* spOutput;
-    
-  ofstream stringout("/Users/Charles/Desktop/common_files/string-out.txt");
+    //   FILE* spOutput;
+
+    ofstream stringout("/Users/Charles/Desktop/common_files/string-out.txt");
     // this does create string-out.txt in the correct directory
-    
-    ifstream stringin("/Users/Charles/Desktop/common_files/string-in.txt") ;
-    
+
+    ifstream stringin("/Users/Charles/Desktop/common_files/string-in.txt");
+
+    // This is a declaration for an array of strings.
     string observation[] = {"a a", "b b", "c c", "d d"}; // should overwrite with values in file
     // strings can have spaces in them
 
+    // This is a declaration for a vector of strings. Strings can have spaces and are declared using double quotes.
     vector<string> v = {"Fr ed", "Wil ma", "Bar ney", "Be tty"};
     // vectors can have spaces in them
-    
-    writeOutput1(v);  // call function writeOutput
-    
-    writeOutput2(observation);  // call function writeOutput
+
+    writeOutput1(v); // call function writeOutput
+
+    // You must pass the output stream to the output function.
+    writeOutput2(observation, stringout); // call function writeOutput
     stringout.close();
     stringin.close();
     return 0;
 
 } // end of main
-
