@@ -1,8 +1,8 @@
 //  main.cpp
-//  experiment trying to move output to a function, retaining pointer
+//  experiment trying to output and input from a file, retaining pointer
 //  this does work, outputs strings to screen and creates output file
 //  this was fixed by kevin partin
-//  now trying to output to a file - no joy yet. it creates but does not output
+//  now does output to a file
 //  also trying to read input from file, it also will not do it. grrrr
 //  Created by Charles Phillips on 3/16/22.
 
@@ -14,7 +14,7 @@
 using namespace std;
 
 // The vector is passed a constant reference, which means the calling argument is passed as a reference, but the contents of the vector can not be changed.
-void writeOutput1 (const vector<string> &v)
+void writeOutput1 (const vector<string> &v)  // this outputs names
 {
     for (string i : v)
         cout << "Value: " << i << endl;
@@ -22,7 +22,8 @@ void writeOutput1 (const vector<string> &v)
 } // end of writeOutput1 function
 
 void writeOutput2 (string pointer[], ostream& os)  // replaces above line version for array of strings
-// this function does not return any values, etc
+// this outputs the letters
+//  this function does not return any values, etc
 
 {
     for (int i = 0; i < 4; i++)
@@ -61,13 +62,13 @@ int main(int argc, const char *argv[])
     // strings can have spaces in them
 
     // This is a declaration for a vector of strings. Strings can have spaces and are declared using double quotes.
-    vector<string> v = {"Fr ed", "Wil ma", "Bar ney", "Be tty"};
+    vector<string> v = {"Fred", "Wilma", "Barney", "Betty"};
     // vectors can have spaces in them
 
-    writeOutput1(v); // call function writeOutput
+    writeOutput1(v); // call function writeOutput1
 
     // You must pass the output stream to the output function.
-    writeOutput2(observation, stringout); // call function writeOutput
+    writeOutput2(observation, stringout); // call function writeOutput2
     stringout.close();
     stringin.close();
     return 0;
