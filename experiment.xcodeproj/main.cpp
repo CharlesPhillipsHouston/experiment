@@ -1,4 +1,4 @@
-//  main.cpp
+//  main.cpp 28 mar 2022
 //  experiment trying to output and input from a file, retaining pointer
 //  this does work, outputs strings to screen and creates output file
 //  this was fixed by kevin partin
@@ -35,13 +35,13 @@ void writeOutput2 (string pointer[], ostream& os)  // replaces above line versio
 } // end of writeOutput2 function
 
 /*
-void readInput (stringin)  // replaces above line version for array of strings
+void readInput (string observation)  // replaces above line version for array of strings
 // this function does not return any values, etc
 
 {
     for (int i = 0; i < 4; i++)
     {
-        getline(stringin)  ; // read in four lines
+        getline(observation)  ; // read in four lines
         
     } //  end of for loop
 
@@ -69,6 +69,8 @@ int main(int argc, const char *argv[])
 
     // You must pass the output stream to the output function.
     writeOutput2(observation, stringout); // call function writeOutput2
+    
+    
     stringout.close();
     stringin.close();
     return 0;
